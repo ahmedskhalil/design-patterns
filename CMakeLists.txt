@@ -10,6 +10,8 @@ enable_testing()
 add_executable(observer-pattern src/observer-pattern.cpp)
 add_executable(visitor-pattern src/visitor-pattern.cpp)
 add_executable(builder-pattern src/builder-pattern.cpp)
+add_executable(factory-method-pattern src/factory-method-pattern.cpp)
+add_executable(adapter-pattern src/adapter-pattern.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

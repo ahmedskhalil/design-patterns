@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  observer_pattern
+//  builder_pattern
 //
 //  Created by AK on 29/12/2021.
 //

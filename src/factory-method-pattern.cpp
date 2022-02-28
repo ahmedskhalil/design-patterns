@@ -46,14 +46,41 @@ public:
 class UIDialog {
 public:
   virtual ~UIDialog() {};
-  virtual string createUIButton() const = 0;
+  virtual std::unique_ptr<UIButton> createUIButton() const = 0;
 };
 
 class WindowsUIDialog : public UIDialog {
 public:
-  string createUIButton() const override {
-    
+  std::unique_ptr<UIButton> createUIButton() const override {
+    return std::make_unique<WindowsUIButton>();
   }
+};
+
+class macOSUIDialog : public UIDialog {
+public:
+  std::unique_ptr<UIButton> createUIButton() const override {
+    return std::make_unique<macOSUIButton>();
+  }
+};
+
+class Application {
+//  UIDialog dialog_;
+  const std::string os_;
+  
+public:
+  Application(const std::string& os) : os_(os) {};
+  
+  void initialise() {
+    if (os_ == "Windows") {
+      new WindowsUIDialog();
+    } else if (os_ == "macOS") {
+      new macOSUIDialog();
+    } else {
+      std::cout << "Unknown OS\n";
+    }
+  }
+  
+  
 };
 
 

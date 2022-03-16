@@ -15,4 +15,5 @@ add_executable(adapter-pattern src/adapter-pattern.cpp)
 add_executable(bridge-pattern src/bridge-pattern.cpp)
 add_executable(abstract-factory-pattern src/abstract-factory-pattern.cpp)
 add_executable(prototype-pattern src/prototype-pattern.cpp)
-
+add_executable(singleton-pattern src/singleton-pattern.cpp)
+add_executable(composite-pattern src/composite-pattern.cpp)

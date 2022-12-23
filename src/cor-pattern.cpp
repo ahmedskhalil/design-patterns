@@ -85,16 +85,14 @@ public:
 
 void ValidateEmail(string str) {
   auto re = "^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
-  BaseValidator* ev = new BaseValidator;
+  unique_ptr<BaseValidator> ev = make_unique<BaseValidator>();
   // NotEmptyValidator->RegexValidatorValidation (->) BaseValidator:"Validation Succeeded."
   ev->setNext(new NotEmptyValidator)->setNext(new RegexValidator(re));
   cout << ">> " << str << " : " << ev->validate(str) << "\n--\n";
-  delete ev;
 }
 
 
 int main(int argc, const char * argv[]) {
-  BaseValidator* ev = new BaseValidator;
   vector<string> email_addresses {"","axe","axe@barn.co.uk"};
   for (auto& ea : email_addresses) {
     ValidateEmail(ea);
